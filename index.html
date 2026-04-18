@@ -3,106 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CREAO is an AI Super Agent with powerful tools for any task — and it turns your best work into Agent Apps that run autonomously, 24/7.">
+    <meta property="og:title" content="CREAO — Run It All">
+    <meta property="og:description" content="CREAO is an AI Super Agent with powerful tools for any task — and it turns your best work into Agent Apps that run autonomously, 24/7.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CREAO">
+    <meta property="og:url" content="https://agent.creao.ai/">
+    <meta property="og:image" content="https://agent.creao.ai/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://agent.creao.ai/og-image.png">
+    <meta name="twitter:title" content="CREAO — Run It All">
+    <meta name="twitter:description" content="CREAO is an AI Super Agent with powerful tools for any task — and it turns your best work into Agent Apps that run autonomously, 24/7.">
     <title>Global Attack Review Platform - Daily Verdict</title>
     <style>
+        :root {
+            color-scheme: light;
+            font-family: 'Inter', Arial, sans-serif;
+            background: #eef2f7;
+            color: #1f2937;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #eef2f7;
         }
+
         header {
-            background-color: #333;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
             color: white;
             text-align: center;
-            padding: 1rem;
+            padding: 2rem 1rem;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+
+        header p {
+            margin: 0.5rem auto 0;
+            max-width: 760px;
+            color: #cbd5e1;
         }
-        .review {
-            background-color: white;
+
+        header img {
+            max-width: 100%;
+            height: auto;
             margin-bottom: 1rem;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .review h3 {
-            margin-top: 0;
-        }
-        .verdict {
-            font-weight: bold;
-            color: #007bff;
-        }
+
         nav {
-            background-color: #444;
+            background-color: #111827;
             color: white;
-            text-align: center;
-            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem 1rem;
+            flex-wrap: wrap;
         }
+
         nav a {
             color: white;
-            margin: 0 1rem;
             text-decoration: none;
+            font-weight: 600;
         }
-        form {
-            background-color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+
+        nav a:hover,
+        nav a:focus-visible {
+            text-decoration: underline;
         }
-        form label {
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card,
+        .panel {
+            background: white;
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .stat-card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #64748b;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .review-controls {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .controls-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .controls-group input,
+        .controls-group select,
+        .panel input,
+        .panel select,
+        .panel textarea {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 0.85rem 1rem;
+            font: inherit;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        .panel label {
             display: block;
             margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #334155;
+            font-weight: 600;
         }
-        form input, form textarea, form select {
-            width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        form button {
-            background-color: #007bff;
-            color: white;
-            padding: 0.5rem 1rem;
+
+        .panel button,
+        .filter-actions button {
             border: none;
-            border-radius: 3px;
+            border-radius: 12px;
+            padding: 0.95rem 1.25rem;
+            font-weight: 700;
             cursor: pointer;
+            background: #2563eb;
+            color: white;
+            transition: transform 0.2s ease, background 0.2s ease;
         }
-        form button:hover {
-            background-color: #0056b3;
+
+        .panel button:hover,
+        .filter-actions button:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
         }
+
+        .filter-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .reviews-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .review-card h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #0f172a;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .badge.low {
+            background: #16a34a;
+        }
+
+        .badge.moderate {
+            background: #f59e0b;
+        }
+
+        .badge.high {
+            background: #dc2626;
+        }
+
+        .badge.critical {
+            background: #7c3aed;
+        }
+
+        .review-card p {
+            margin: 0.65rem 0 0;
+            line-height: 1.7;
+            color: #334155;
+        }
+
         .documents {
-            background-color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
         }
+
         .documents h2 {
             margin-top: 0;
         }
+
         .documents ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
+
         .documents li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.85rem;
         }
+
         .documents a {
-            color: #007bff;
+            color: #2563eb;
             text-decoration: none;
         }
-        .documents a:hover {
+
+        .documents a:hover,
+        .documents a:focus-visible {
             text-decoration: underline;
+        }
+
+        @media (max-width: 740px) {
+            .review-controls,
+            .controls-group,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-actions {
+                justify-content: stretch;
+            }
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="images/photo1.jpg" alt="Global Attack Design">
         <h1>Global Attack Review Platform</h1>
         <p>Daily Verdict on Global Events</p>
     </header>
@@ -113,77 +298,286 @@
     </nav>
     <div class="container">
         <section id="verdicts">
-            <h2>Today's Verdicts</h2>
-            <div id="reviews">
-                <div class="review">
-                    <h3>Event: Cyber Attack on Financial Institution</h3>
-                    <p><strong>Verdict:</strong> <span class="verdict">High Risk - Immediate Action Required</span></p>
-                    <p>Details: A sophisticated cyber attack targeting a major bank. Analysts recommend enhanced security protocols.</p>
+            <div class="section-header">
+                <div>
+                    <h2>Today's Verdicts</h2>
+                    <p>Track active events, filter risk levels, and save the latest assessments.</p>
                 </div>
-                <div class="review">
-                    <h3>Event: Geopolitical Tension in Eastern Europe</h3>
-                    <p><strong>Verdict:</strong> <span class="verdict">Moderate Risk - Monitor Closely</span></p>
-                    <p>Details: Escalating tensions with potential for conflict. Diplomatic efforts ongoing.</p>
+                <section class="stats" aria-label="Verdict summary" id="reviewStats">
+                    <div class="stat-card">
+                        <h3>Total verdicts</h3>
+                        <p id="totalCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Critical</h3>
+                        <p id="criticalCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>High</h3>
+                        <p id="highCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Moderate</h3>
+                        <p id="moderateCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Low</h3>
+                        <p id="lowCount">0</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="review-controls">
+                <div class="controls-group">
+                    <label for="searchInput">Search events</label>
+                    <input id="searchInput" type="search" placeholder="Search by event title or details">
+                    <label for="filterLevel">Risk filter</label>
+                    <select id="filterLevel">
+                        <option value="">All risk levels</option>
+                        <option value="Low Risk">Low Risk</option>
+                        <option value="Moderate Risk">Moderate Risk</option>
+                        <option value="High Risk">High Risk</option>
+                        <option value="Critical">Critical</option>
+                    </select>
                 </div>
-                <div class="review">
-                    <h3>Event: Natural Disaster Response</h3>
-                    <p><strong>Verdict:</strong> <span class="verdict">Low Risk - Under Control</span></p>
-                    <p>Details: Effective response to recent earthquake. Humanitarian aid well-coordinated.</p>
+                <div class="filter-actions">
+                    <button type="button" id="sortNewest">Newest first</button>
+                    <button type="button" id="sortRisk">Sort by risk</button>
                 </div>
             </div>
+
+            <div class="reviews-list" id="reviews" aria-live="polite"></div>
         </section>
+
         <section id="submit">
             <h2>Submit a New Verdict</h2>
-            <form id="reviewForm">
-                <label for="event">Event Title:</label>
-                <input type="text" id="event" required>
-                
-                <label for="verdictLevel">Verdict Level:</label>
-                <select id="verdictLevel" required>
-                    <option value="">Select Level</option>
-                    <option value="Low Risk">Low Risk</option>
-                    <option value="Moderate Risk">Moderate Risk</option>
-                    <option value="High Risk">High Risk</option>
-                    <option value="Critical">Critical</option>
-                </select>
-                
-                <label for="details">Details:</label>
-                <textarea id="details" rows="4" required></textarea>
-                
-                <button type="submit">Submit Verdict</button>
+            <form id="reviewForm" class="panel">
+                <div>
+                    <label for="event">Event title</label>
+                    <input type="text" id="event" placeholder="Enter event title" required>
+                </div>
+                <div>
+                    <label for="analyst">Analyst / source</label>
+                    <input type="text" id="analyst" placeholder="Enter analyst name or source" required>
+                </div>
+                <div>
+                    <label for="verdictLevel">Risk verdict</label>
+                    <select id="verdictLevel" required>
+                        <option value="">Choose risk level</option>
+                        <option value="Low Risk">Low Risk</option>
+                        <option value="Moderate Risk">Moderate Risk</option>
+                        <option value="High Risk">High Risk</option>
+                        <option value="Critical">Critical</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="details">Analysis details</label>
+                    <textarea id="details" rows="4" placeholder="Describe the event and recommended response" required></textarea>
+                </div>
+                <button type="submit">Submit verdict</button>
             </form>
         </section>
+
         <section id="documents" class="documents">
             <h2>Master Plan Documents</h2>
+            <p>Open the latest planning and strategy documents for this review platform.</p>
             <ul>
-                <li><a href="global-attack-master-plan-v4-full_1776142234.pdf" target="_blank">Global Attack Master Plan v4 Full (1776142234)</a></li>
-                <li><a href="Global_Attack_Master_Plan_v4_Full_1776142162.pdf" target="_blank">Global Attack Master Plan v4 Full (1776142162)</a></li>
-                <li><a href="no2.pdf" target="_blank">No2 Document</a></li>
+                <li><a href="global-attack-master-plan-v4-full_1776142234.pdf" target="_blank" rel="noopener">Global Attack Master Plan v4 Full (1776142234)</a></li>
+                <li><a href="Global_Attack_Master_Plan_v4_Full_1776142162.pdf" target="_blank" rel="noopener">Global Attack Master Plan v4 Full (1776142162)</a></li>
+                <li><a href="no2.pdf" target="_blank" rel="noopener">No2 Document</a></li>
             </ul>
         </section>
     </div>
     <script>
-        document.getElementById('reviewForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const event = document.getElementById('event').value;
-            const verdictLevel = document.getElementById('verdictLevel').value;
-            const details = document.getElementById('details').value;
-            
-            const reviewDiv = document.createElement('div');
-            reviewDiv.className = 'review';
-            reviewDiv.innerHTML = `
-                <h3>Event: ${event}</h3>
-                <p><strong>Verdict:</strong> <span class="verdict">${verdictLevel} - ${details.split('.')[0]}</span></p>
-                <p>Details: ${details}</p>
+        const STORAGE_KEY = 'globalAttackReviews';
+        const sampleReviews = [
+            {
+                event: 'Cyber Attack on Financial Institution',
+                analyst: 'Security Operations',
+                verdict: 'High Risk',
+                details: 'A sophisticated cyber attack targeting a major bank. Analysts recommend enhanced security protocols.',
+                timestamp: '2026-04-18T08:15:00Z'
+            },
+            {
+                event: 'Geopolitical Tension in Eastern Europe',
+                analyst: 'Foreign Affairs Desk',
+                verdict: 'Moderate Risk',
+                details: 'Escalating tensions with potential for conflict. Diplomatic efforts ongoing.',
+                timestamp: '2026-04-18T10:32:00Z'
+            },
+            {
+                event: 'Natural Disaster Response',
+                analyst: 'Humanitarian Response',
+                verdict: 'Low Risk',
+                details: 'Effective response to recent earthquake. Humanitarian aid well-coordinated.',
+                timestamp: '2026-04-18T12:45:00Z'
+            }
+        ];
+
+        const reviewForm = document.getElementById('reviewForm');
+        const reviewsContainer = document.getElementById('reviews');
+        const searchInput = document.getElementById('searchInput');
+        const filterLevel = document.getElementById('filterLevel');
+        const sortNewestButton = document.getElementById('sortNewest');
+        const sortRiskButton = document.getElementById('sortRisk');
+
+        let reviews = loadReviews();
+        let currentSort = 'newest';
+
+        function loadReviews() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (!saved) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleReviews));
+                return [...sampleReviews];
+            }
+
+            try {
+                return JSON.parse(saved);
+            } catch (error) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleReviews));
+                return [...sampleReviews];
+            }
+        }
+
+        function saveReviews() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+        }
+
+        function formatTimestamp(timestamp) {
+            return new Intl.DateTimeFormat('en-US', {
+                dateStyle: 'medium',
+                timeStyle: 'short'
+            }).format(new Date(timestamp));
+        }
+
+        function badgeClass(verdict) {
+            return verdict.toLowerCase().includes('critical') ? 'critical'
+                : verdict.toLowerCase().includes('high') ? 'high'
+                : verdict.toLowerCase().includes('moderate') ? 'moderate'
+                : 'low';
+        }
+
+        function renderReviewCard(review) {
+            const article = document.createElement('article');
+            article.className = 'review-card';
+            article.innerHTML = `
+                <h3>${review.event}</h3>
+                <div class="meta">
+                    <span class="badge ${badgeClass(review.verdict)}">${review.verdict}</span>
+                    <span>${review.analyst}</span>
+                    <span>${formatTimestamp(review.timestamp)}</span>
+                </div>
+                <p>${review.details}</p>
             `;
-            
-            document.getElementById('reviews').appendChild(reviewDiv);
-            
-            // Clear form
-            document.getElementById('reviewForm').reset();
+            return article;
+        }
+
+        function updateSummary(filteredReviews) {
+            const counts = {
+                critical: 0,
+                high: 0,
+                moderate: 0,
+                low: 0
+            };
+
+            filteredReviews.forEach((review) => {
+                const verdict = review.verdict.toLowerCase();
+                if (verdict.includes('critical')) counts.critical += 1;
+                else if (verdict.includes('high')) counts.high += 1;
+                else if (verdict.includes('moderate')) counts.moderate += 1;
+                else counts.low += 1;
+            });
+
+            document.getElementById('totalCount').textContent = filteredReviews.length;
+            document.getElementById('criticalCount').textContent = counts.critical;
+            document.getElementById('highCount').textContent = counts.high;
+            document.getElementById('moderateCount').textContent = counts.moderate;
+            document.getElementById('lowCount').textContent = counts.low;
+        }
+
+        function compareRisk(a, b) {
+            const order = ['critical', 'high', 'moderate', 'low'];
+            const indexA = order.findIndex((level) => a.verdict.toLowerCase().includes(level));
+            const indexB = order.findIndex((level) => b.verdict.toLowerCase().includes(level));
+            return indexA - indexB;
+        }
+
+        function renderReviews() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            const levelFilter = filterLevel.value;
+
+            let filtered = reviews.filter((review) => {
+                const matchesLevel = !levelFilter || review.verdict === levelFilter;
+                const matchesSearch = [review.event, review.details, review.analyst]
+                    .join(' ')
+                    .toLowerCase()
+                    .includes(searchTerm);
+                return matchesLevel && matchesSearch;
+            });
+
+            if (currentSort === 'newest') {
+                filtered.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            } else {
+                filtered.sort(compareRisk);
+            }
+
+            reviewsContainer.innerHTML = '';
+            filtered.forEach((review) => {
+                reviewsContainer.appendChild(renderReviewCard(review));
+            });
+
+            if (filtered.length === 0) {
+                const message = document.createElement('div');
+                message.className = 'panel';
+                message.innerHTML = '<p>No reviews match the current filters. Try a different risk category or search term.</p>';
+                reviewsContainer.appendChild(message);
+            }
+
+            updateSummary(reviews);
+        }
+
+        function addReview(eventData, analyst, verdict, details) {
+            reviews.unshift({
+                event: eventData,
+                analyst,
+                verdict,
+                details,
+                timestamp: new Date().toISOString()
+            });
+            saveReviews();
+            renderReviews();
+        }
+
+        reviewForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const eventTitle = document.getElementById('event').value.trim();
+            const analyst = document.getElementById('analyst').value.trim();
+            const verdictLevel = document.getElementById('verdictLevel').value;
+            const details = document.getElementById('details').value.trim();
+
+            if (!eventTitle || !analyst || !verdictLevel || !details) {
+                return;
+            }
+
+            addReview(eventTitle, analyst, verdictLevel, details);
+            reviewForm.reset();
+            searchInput.value = '';
+            filterLevel.value = '';
         });
+
+        searchInput.addEventListener('input', renderReviews);
+        filterLevel.addEventListener('change', renderReviews);
+        sortNewestButton.addEventListener('click', () => {
+            currentSort = 'newest';
+            renderReviews();
+        });
+        sortRiskButton.addEventListener('click', () => {
+            currentSort = 'risk';
+            renderReviews();
+        });
+
+        window.addEventListener('DOMContentLoaded', renderReviews);
     </script>
 </body>
-</html></content>
-<parameter name="filePath">c:\Users\wfbak\OneDrive\Documents\GitHub\globalattack\index.html
+</html>

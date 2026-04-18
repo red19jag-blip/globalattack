@@ -1,0 +1,13 @@
+{
+  "name": "globalattack",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "lint:html": "html-validate index.html",
+    "test": "npm run lint:html"
+  },
+  "devDependencies": {
+    "html-validate": "^9.7.0",
+    "http-server": "^14.1.1"
+  }
+}
