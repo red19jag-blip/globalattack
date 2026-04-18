@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Attack Review Platform - Daily Verdict</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .review {
+            background-color: white;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .review h3 {
+            margin-top: 0;
+        }
+        .verdict {
+            font-weight: bold;
+            color: #007bff;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        form {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        form button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+        .documents {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .documents h2 {
+            margin-top: 0;
+        }
+        .documents ul {
+            list-style: none;
+            padding: 0;
+        }
+        .documents li {
+            margin-bottom: 0.5rem;
+        }
+        .documents a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .documents a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Global Attack Review Platform</h1>
+        <p>Daily Verdict on Global Events</p>
+    </header>
+    <nav>
+        <a href="#verdicts">Verdicts</a>
+        <a href="#submit">Submit Review</a>
+        <a href="#documents">Documents</a>
+    </nav>
+    <div class="container">
+        <section id="verdicts">
+            <h2>Today's Verdicts</h2>
+            <div id="reviews">
+                <div class="review">
+                    <h3>Event: Cyber Attack on Financial Institution</h3>
+                    <p><strong>Verdict:</strong> <span class="verdict">High Risk - Immediate Action Required</span></p>
+                    <p>Details: A sophisticated cyber attack targeting a major bank. Analysts recommend enhanced security protocols.</p>
+                </div>
+                <div class="review">
+                    <h3>Event: Geopolitical Tension in Eastern Europe</h3>
+                    <p><strong>Verdict:</strong> <span class="verdict">Moderate Risk - Monitor Closely</span></p>
+                    <p>Details: Escalating tensions with potential for conflict. Diplomatic efforts ongoing.</p>
+                </div>
+                <div class="review">
+                    <h3>Event: Natural Disaster Response</h3>
+                    <p><strong>Verdict:</strong> <span class="verdict">Low Risk - Under Control</span></p>
+                    <p>Details: Effective response to recent earthquake. Humanitarian aid well-coordinated.</p>
+                </div>
+            </div>
+        </section>
+        <section id="submit">
+            <h2>Submit a New Verdict</h2>
+            <form id="reviewForm">
+                <label for="event">Event Title:</label>
+                <input type="text" id="event" required>
+                
+                <label for="verdictLevel">Verdict Level:</label>
+                <select id="verdictLevel" required>
+                    <option value="">Select Level</option>
+                    <option value="Low Risk">Low Risk</option>
+                    <option value="Moderate Risk">Moderate Risk</option>
+                    <option value="High Risk">High Risk</option>
+                    <option value="Critical">Critical</option>
+                </select>
+                
+                <label for="details">Details:</label>
+                <textarea id="details" rows="4" required></textarea>
+                
+                <button type="submit">Submit Verdict</button>
+            </form>
+        </section>
+        <section id="documents" class="documents">
+            <h2>Master Plan Documents</h2>
+            <ul>
+                <li><a href="global-attack-master-plan-v4-full_1776142234.pdf" target="_blank">Global Attack Master Plan v4 Full (1776142234)</a></li>
+                <li><a href="Global_Attack_Master_Plan_v4_Full_1776142162.pdf" target="_blank">Global Attack Master Plan v4 Full (1776142162)</a></li>
+                <li><a href="no2.pdf" target="_blank">No2 Document</a></li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const event = document.getElementById('event').value;
+            const verdictLevel = document.getElementById('verdictLevel').value;
+            const details = document.getElementById('details').value;
+            
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.innerHTML = `
+                <h3>Event: ${event}</h3>
+                <p><strong>Verdict:</strong> <span class="verdict">${verdictLevel} - ${details.split('.')[0]}</span></p>
+                <p>Details: ${details}</p>
+            `;
+            
+            document.getElementById('reviews').appendChild(reviewDiv);
+            
+            // Clear form
+            document.getElementById('reviewForm').reset();
+        });
+    </script>
+</body>
+</html></content>
+<parameter name="filePath">c:\Users\wfbak\OneDrive\Documents\GitHub\globalattack\index.html
